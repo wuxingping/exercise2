@@ -9,6 +9,7 @@ cache:
     - node_modules
     
 install:
+  - npm install mocha -g
   - npm install
 
 before_script:
