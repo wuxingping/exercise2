@@ -1,1 +1,23 @@
-language:node_js
+language: node_js 
+ # nodejs版本 
+ node_js:  
+ - '10.13.0' 
+   # Travis-CI Caching 
+ cache: 
+ directories: 
+ - node_modules 
+   install: 
+ - npm install mocha -g 
+ - npm install 
+   before_script: 
+   # 无其他依赖项所以执行npm run build 构建就行了 
+ script: 
+ - npm run test 
+   #指定分支，只有指定的分支提交时才会运行脚本 
+ branches: 
+ only: 
+ - master 
+ env: 
+ global: 
+ # 我将其添加到了travis-ci的环境变量中 
+ #- GH_REF: github.com/yimogit/metools.git
